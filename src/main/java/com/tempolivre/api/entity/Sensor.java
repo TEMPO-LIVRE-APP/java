@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @Table(name = "dispositivo")
 @Entity(name = "dispositivo")
-public class IoTDevice {
+public class Sensor {
 
     @Id
     @GeneratedValue( strategy = GenerationType.UUID)
@@ -22,7 +22,7 @@ public class IoTDevice {
 
     private double longitude;
 
-    public IoTDevice(String name, double latitude, double longitude){
+    public Sensor(String name, double latitude, double longitude){
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;

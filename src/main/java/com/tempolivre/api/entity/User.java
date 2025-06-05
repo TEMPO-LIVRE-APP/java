@@ -1,4 +1,5 @@
 package com.tempolivre.api.entity;
+import com.tempolivre.api.entity.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;

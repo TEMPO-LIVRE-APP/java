@@ -1,7 +1,7 @@
 package com.tempolivre.api.controller;
 
-import com.tempolivre.api.entity.IoTDevice;
-import com.tempolivre.api.service.IoTDeviceService;
+import com.tempolivre.api.entity.Sensor;
+import com.tempolivre.api.service.SensorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,16 +10,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/devices")
-public class IoTDeviceController {
+@RequestMapping("/sensores")
+public class SensorController {
 
     @Autowired
-    private IoTDeviceService ioTDeviceService;
+    private SensorService sensorService;
 
     // GET - ALL
     @GetMapping
-    public ResponseEntity<Page<IoTDevice>> listAll(Pageable pageable){
-        return ResponseEntity.ok(ioTDeviceService.listDevices(pageable));
+    public ResponseEntity<Page<Sensor>> listAll(Pageable pageable){
+        return ResponseEntity.ok(sensorService.listDevices(pageable));
     }
 
     /*
@@ -36,27 +36,27 @@ public class IoTDeviceController {
 
     // GET - ID
     @GetMapping("/{id}")
-    public ResponseEntity<IoTDevice> findById(@PathVariable String id){
-        return ResponseEntity.ok(ioTDeviceService.searchById(id));
+    public ResponseEntity<Sensor> findById(@PathVariable String id){
+        return ResponseEntity.ok(sensorService.searchById(id));
     }
 
     // POST
     @PostMapping
-    public ResponseEntity<IoTDevice> register(@RequestBody IoTDevice ioTDevice){
+    public ResponseEntity<Sensor> register(@RequestBody Sensor sensor){
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(ioTDeviceService.registerDevice(ioTDevice));
+                .body(sensorService.registerDevice(sensor));
     }
 
     // UPDATE
     @PutMapping("/{id}")
-    public ResponseEntity<IoTDevice> update(@PathVariable String id, @RequestBody IoTDevice ioTDevice){
-        return ResponseEntity.ok(ioTDeviceService.updateDevice(id, ioTDevice));
+    public ResponseEntity<Sensor> update(@PathVariable String id, @RequestBody Sensor sensor){
+        return ResponseEntity.ok(sensorService.updateDevice(id, sensor));
     }
 
     // DELETE
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id){
-        ioTDeviceService.deleteDevice(id);
+        sensorService.deleteDevice(id);
         return ResponseEntity.noContent().build();
     }
 }

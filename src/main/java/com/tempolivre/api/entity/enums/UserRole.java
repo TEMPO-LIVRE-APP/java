@@ -1,4 +1,4 @@
-package com.tempolivre.api.entity;
+package com.tempolivre.api.entity.enums;
 
 public enum UserRole {
 

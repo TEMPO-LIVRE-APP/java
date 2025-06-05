@@ -1,7 +1,7 @@
 package com.tempolivre.api.controller;
 
-import com.tempolivre.api.entity.User;
-import com.tempolivre.api.service.UserService;
+import com.tempolivre.api.entity.Alert;
+import com.tempolivre.api.service.AlertaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,44 +11,48 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/alertas")
+public class AlertaController {
 
     @Autowired
-    private UserService userService;
+    private AlertaService alertaService;
 
     // GET - ALL
     @GetMapping
-    public ResponseEntity<Page<User>> listAll(Pageable pageable){
-        return ResponseEntity.ok(userService.listUsers(pageable));
+    public ResponseEntity<Page<Alert>> listAll(Pageable pageable){
+        return ResponseEntity.ok(alertaService.listAlertas(pageable));
     }
+
 
     // GET - ID
     @GetMapping("/{id}")
-    public ResponseEntity<User> findById(@PathVariable @Valid String id){
-        return ResponseEntity.ok(userService.searchById(id));
+    public ResponseEntity<Alert> findById(@PathVariable @Valid String id){
+        return ResponseEntity.ok(alertaService.searchById(id));
     }
 
-    // GET - USERNAME
 
     // POST
     @PostMapping
-    public ResponseEntity<User> register(@RequestBody @Valid User user){
+    public ResponseEntity<Alert> register(@RequestBody @Valid Alert alert){
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(userService.registerUser(user));
+                .body(alertaService.registerAlerta(alert));
     }
 
-    // UPDATE
+
+    // PUT
     @PutMapping("/{id}")
-    public ResponseEntity<User> update(
-            @RequestBody @Valid User user,
+    public ResponseEntity<Alert> update(
+            @RequestBody @Valid Alert alert,
             @PathVariable @Valid String id
-    ){ return ResponseEntity.ok(userService.updateUser(id, user)); }
+    ){ return ResponseEntity.ok(alertaService.updateAlerta(id, alert)); }
+
 
     // DELETE
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable @Valid String id){
-        userService.deleteUser(id);
+        alertaService.deleteAlerta(id);
         return ResponseEntity.noContent().build();
     }
+
+
 }
