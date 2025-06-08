@@ -30,8 +30,8 @@ public class AbrigoService {
     }
 
     // Buscar por Nome
-    public Page<Abrigo> searchByNome(String nome, Pageable pageable){
-        List<Abrigo> abrigos = abrigoRepository.findByNome(nome);
+    public Page<Abrigo> searchByNome(String name, Pageable pageable){
+        List<Abrigo> abrigos = abrigoRepository.findByName(name);
         return new PageImpl<>(abrigos, pageable, abrigos.size());
     }
 
@@ -50,7 +50,7 @@ public class AbrigoService {
     public Abrigo updateAbrigo(String id, Abrigo newAbrigo){
         Abrigo abrigo = searchById(id);
 
-        abrigo.setNome(newAbrigo.getNome());
+        abrigo.setName(newAbrigo.getName());
         abrigo.setContato(newAbrigo.getContato());
         abrigo.setEndereco(newAbrigo.getEndereco());
         abrigo.setLatitude(newAbrigo.getLatitude());

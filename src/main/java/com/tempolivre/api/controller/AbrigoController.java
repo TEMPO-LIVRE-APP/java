@@ -11,21 +11,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/abrigos")
+@RequestMapping("/safe-places")
 public class AbrigoController {
 
     @Autowired
     private AbrigoService abrigoService;
 
-    // GET ALL / FILTROS
+    // GET - ALL / FILTROS
     @GetMapping
     public ResponseEntity<Page<Abrigo>> listAll(
-        @RequestParam(required = false) String nome,
+        @RequestParam(required = false) String name,
         @RequestParam(required = false) String endereco,
         Pageable pageable
     ){
-        if(nome != null) {
-            return ResponseEntity.ok(abrigoService.searchByNome(nome, pageable));
+        if(name != null) {
+            return ResponseEntity.ok(abrigoService.searchByNome(name, pageable));
         }
         if(endereco != null) {
             return ResponseEntity.ok(abrigoService.searchByEndereco(endereco, pageable));
@@ -59,5 +59,4 @@ public class AbrigoController {
         abrigoService.deleteAbrigo(id);
         return ResponseEntity.noContent().build();
     }
-
 }

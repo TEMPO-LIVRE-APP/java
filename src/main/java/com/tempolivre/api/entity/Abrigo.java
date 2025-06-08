@@ -18,9 +18,11 @@ public class Abrigo {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+    @Column(unique = true)
     @NotBlank(message = "O local deve ter um nome")
-    private String nome;
+    private String name;
 
+    @Column(unique = true)
     @NotBlank(message = "O local deve ter um contato")
     private String contato;
 
@@ -28,7 +30,6 @@ public class Abrigo {
     private String endereco;
 
     private double latitude;
-
     private double longitude;
 
 }

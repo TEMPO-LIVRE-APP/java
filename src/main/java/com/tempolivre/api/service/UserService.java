@@ -30,6 +30,11 @@ public class UserService {
         return (User) userRepository.findByUsername(username);
     }
 
+    // Buscar por Email
+    public User searchByEmail(String email){
+        return (User) userRepository.findByEmail(email);
+    }
+
     // Registrar
     public User registerUser(User user){
         return userRepository.save(user);
@@ -38,9 +43,13 @@ public class UserService {
     // Atualizar
     public User updateUser(String id, User userUpdated){
         User user = searchById(id);
+
+        user.setRole(userUpdated.getRole());
+        user.setName(userUpdated.getName());
+        user.setEmail(userUpdated.getEmail());
         user.setUsername(userUpdated.getUsername());
         user.setPassword(userUpdated.getPassword());
-        user.setRole(userUpdated.getRole());
+
         return userRepository.save(user);
     }
 

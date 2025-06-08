@@ -29,7 +29,17 @@ public class UserController {
         return ResponseEntity.ok(userService.searchById(id));
     }
 
+    // GET - EMAIL
+    @GetMapping("/email/{email}")
+    public ResponseEntity<User> findByEmail(@PathVariable @Valid String email){
+        return ResponseEntity.ok(userService.searchByEmail(email));
+    }
+
     // GET - USERNAME
+    @GetMapping("/username/{username}")
+    public ResponseEntity<User> findByUsername(@PathVariable @Valid String username){
+        return ResponseEntity.ok(userService.searchByUsername(username));
+    }
 
     // POST
     @PostMapping
