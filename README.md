@@ -28,7 +28,6 @@ O sistema oferece:
 
 - Autenticação segura com JWT
 - Gerenciamento completo de usuários
-- Monitoramento de sensores IoT em tempo real
 - Sistema de alertas com diferentes níveis de severidade
 - Cadastro e localização de abrigos seguros
 - API RESTful com documentação Swagger
