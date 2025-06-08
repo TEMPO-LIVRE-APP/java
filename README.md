@@ -35,7 +35,7 @@ O sistema oferece:
 ## 📺 Vídeos de Demonstração
 
 #### Pitch: [YouTube]()
-#### Demonstração: [YouTube]()
+#### Demonstração: [YouTube](https://youtu.be/NsYGkFWhY1s)
 
 ## ⚡ Funcionalidades
 
