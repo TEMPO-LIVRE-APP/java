@@ -29,7 +29,43 @@ public class Abrigo {
     @NotBlank(message = "O local deve ter um endereco")
     private String endereco;
 
-    private double latitude;
+    public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getContato() {
+		return contato;
+	}
+	public void setContato(String contato) {
+		this.contato = contato;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	public double getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+	public double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+	private double latitude;
     private double longitude;
 
 }

@@ -36,4 +36,52 @@ public class Alert {
     @JsonFormat(pattern = "dd/MM/yy HH:mm:ss")
     @CreationTimestamp
     private LocalDateTime emissao;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public AlertaNivel getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(AlertaNivel nivel) {
+		this.nivel = nivel;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public AlertaStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(AlertaStatus status) {
+		this.status = status;
+	}
+
+	public LocalDateTime getEmissao() {
+		return emissao;
+	}
+
+	public void setEmissao(LocalDateTime emissao) {
+		this.emissao = emissao;
+	}
 }

@@ -2,6 +2,7 @@ package com.tempolivre.api.controller;
 
 import com.tempolivre.api.entity.Sensor;
 import com.tempolivre.api.service.SensorService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,40 +23,28 @@ public class SensorController {
         return ResponseEntity.ok(sensorService.listDevices(pageable));
     }
 
-    /*
-    // GET - ALL
-    @GetMapping
-    public ResponseEntity<PagedModel<EntityModel<Device>>> listAll(
-        Pageable pageable,
-        PagedResourcesAssembler<Device> assembler
-    ){
-        Page<Device> page = deviceService.listDevices(pageable);
-        return ResponseEntity.ok(assembler.toModel(page));
-    }
-    */
-
     // GET - ID
     @GetMapping("/{id}")
-    public ResponseEntity<Sensor> findById(@PathVariable String id){
+    public ResponseEntity<Sensor> findById(@PathVariable @Valid String id){
         return ResponseEntity.ok(sensorService.searchById(id));
     }
 
     // POST
     @PostMapping
-    public ResponseEntity<Sensor> register(@RequestBody Sensor sensor){
+    public ResponseEntity<Sensor> register(@RequestBody @Valid Sensor sensor){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(sensorService.registerDevice(sensor));
     }
 
     // UPDATE
     @PutMapping("/{id}")
-    public ResponseEntity<Sensor> update(@PathVariable String id, @RequestBody Sensor sensor){
+    public ResponseEntity<Sensor> update(@PathVariable @Valid String id, @RequestBody @Valid Sensor sensor){
         return ResponseEntity.ok(sensorService.updateDevice(id, sensor));
     }
 
     // DELETE
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id){
+    public ResponseEntity<Void> delete(@PathVariable @Valid String id){
         sensorService.deleteDevice(id);
         return ResponseEntity.noContent().build();
     }
