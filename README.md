@@ -97,6 +97,7 @@ cd api
 no application.properties altere
 
 DB_USERNAME=seu_usuario
+
 DB_PASSWORD=sua_senha
 
 ### 3. Configure o JWT
