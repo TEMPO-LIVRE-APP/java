@@ -93,28 +93,29 @@ git clone https://github.com/TEMPO-LIVRE-APP/api.git
 cd api
 ```
 
-### 2. Configure o Banco de Dados
+### 2. Configure o Banco de dados
+no application.properties altere
 
-Crie um arquivo `.env` na raiz do projeto:
-```env
-# Database Configuration
-DB_URL=jdbc:oracle:thin:@localhost:1521:XE
 DB_USERNAME=seu_usuario
 DB_PASSWORD=sua_senha
 
+### 3. Configure o JWT
+
+Crie um arquivo `.env` na raiz do projeto:
+```env
 # JWT Configuration
 JWT_SECRET=sua_chave_secreta_aqui
 JWT_EXPIRATION=86400000
 ```
 
-### 3. Instale as Dependências
+### 4. Instale as Dependências
 ```bash
 mvn clean install
 ```
 
-### 4. Execute a Aplicação
+### 5. Execute a Aplicação
 ```bash
-mvn spring-boot:run
+mvn clean spring-boot:run
 ```
 
 A API estará disponível em: `http://localhost:8080`
